@@ -9,8 +9,11 @@ namespace Business.Abstract
     {
         void Add(Car car);
         void Update(Car car);
-        void Delete(int carID);
-        void GetByID(int carID);
-        void GetAll();
+        void Delete(Car car);
+        List<Car> GetByID(int ID);
+        List<Car> GetAll();
+        List<Car> GetByBrandID(int brandID);
+        List<Car> GetByColorID(int colorID);
+        List<Car> GetByDailyPrice(decimal min, decimal max);
     }
 }
