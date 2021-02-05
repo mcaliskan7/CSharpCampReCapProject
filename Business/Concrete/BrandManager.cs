@@ -21,20 +21,23 @@ namespace Business.Concrete
             if (brand.Name.Length >= 2)
             {
                 _brandDal.Add(brand);
+                Console.WriteLine("Brand Added Succesfully!\n");
             }
             else
             {
-                Console.WriteLine("Invalid Brand Name!");
+                Console.WriteLine("Invalid Brand Name, Registration Failed!\n");
             }
         }
 
         public void Delete(Brand brand)
         {
             _brandDal.Delete(brand);
+            Console.WriteLine("Brand Deleted Succesfully!\n");
         }
 
         public List<Brand> GetAll()
         {
+            Console.WriteLine("\tAll Brands in the System");
             return _brandDal.GetAll();
         }
 
@@ -46,6 +49,7 @@ namespace Business.Concrete
         public void Update(Brand brand)
         {
             _brandDal.Update(brand);
+            Console.WriteLine("Brand Updated Succesfully!\n");
         }
     }
 }

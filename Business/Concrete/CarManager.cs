@@ -18,14 +18,14 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.Description.Length < 2 || car.DailyPrice <= 0)
+            if (car.DailyPrice > 0)
             {
-                Console.WriteLine("Description must contain at least 2 characters!\n" +
-                                  "Daily price should be positive.");
+                _carDal.Add(car);
+                Console.WriteLine("Car Added Succesfully!");
             }
             else
             {
-                _carDal.Add(car);
+                Console.WriteLine("Invalid Daily Price, Registration Failed!");
             }
 
         }
@@ -33,10 +33,12 @@ namespace Business.Concrete
         public void Delete(Car car)
         {
             _carDal.Delete(car);
+            Console.WriteLine("Car Deleted Succesfully!");
         }
 
         public List<Car> GetAll()
         {
+            Console.WriteLine("\t\t\t\t\t\t\t\tAll Cars in the System");
             return _carDal.GetAll();
         }
 
@@ -47,21 +49,25 @@ namespace Business.Concrete
 
         public List<Car> GetByColorID(int colorID)
         {
+            Console.WriteLine("Car whose ColorID is {0}", colorID);
             return _carDal.GetAll(c => c.ColorID == colorID);
         }
 
         public List<Car> GetByBrandID(int brandID)
         {
+            Console.WriteLine("Car whose BrandID is {0}", brandID);
             return _carDal.GetAll(c => c.BrandID == brandID);
         }
 
         public void Update(Car car)
         {
             _carDal.Update(car);
+            Console.WriteLine("Car Updated Succesfully!");
         }
 
         public List<Car> GetByDailyPrice(decimal min, decimal max)
         {
+            Console.WriteLine("Car whose DailyPrice is greater than {0} and less than {1}", min, max);
             return _carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
         }
     }
