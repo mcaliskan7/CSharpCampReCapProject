@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -37,26 +38,23 @@ namespace Business.Concrete
         }
 
         public List<Car> GetAll()
-        {
-            Console.WriteLine("\t\t\t\t\t\t\t\tAll Cars in the System");
+        {            
             return _carDal.GetAll();
         }
 
-        public Car GetByID(int ID)
+        public Car GetById(int id)
         {
-            return _carDal.Get(c => c.ID == ID);
+            return _carDal.Get(c => c.Id == id);
         }
 
-        public List<Car> GetByColorID(int colorID)
-        {
-            Console.WriteLine("Car whose ColorID is {0}", colorID);
-            return _carDal.GetAll(c => c.ColorID == colorID);
+        public List<Car> GetByColorId(int colorId)
+        {           
+            return _carDal.GetAll(c => c.ColorId == colorId);
         }
 
-        public List<Car> GetByBrandID(int brandID)
-        {
-            Console.WriteLine("Car whose BrandID is {0}", brandID);
-            return _carDal.GetAll(c => c.BrandID == brandID);
+        public List<Car> GetByBrandId(int brandId)
+        {          
+            return _carDal.GetAll(c => c.BrandId == brandId);
         }
 
         public void Update(Car car)
@@ -66,9 +64,13 @@ namespace Business.Concrete
         }
 
         public List<Car> GetByDailyPrice(decimal min, decimal max)
-        {
-            Console.WriteLine("Car whose DailyPrice is greater than {0} and less than {1}", min, max);
+        {           
             return _carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {           
+            return _carDal.GetCarDetails();
         }
     }
 }

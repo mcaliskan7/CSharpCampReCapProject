@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,63 +18,63 @@ namespace DataAccess.Concrete.InMemory
             {
                 new Car 
                 {
-                    ID = 1,
-                    BrandID = 1, 
-                    ColorID = 2, 
+                    Id = 1,
+                    BrandId = 1, 
+                    ColorId = 2, 
                     ModelYear = 2013, 
                     DailyPrice = 640, 
                     Description = "Sunroof, Navigation System, Bluetooth"
                 },
                 new Car
                 {
-                    ID = 2,
-                    BrandID = 3,
-                    ColorID = 1,
+                    Id = 2,
+                    BrandId = 3,
+                    ColorId = 1,
                     ModelYear = 2015,
                     DailyPrice = 740,
                     Description = "Sunroof, Navigation System, Bluetooth, Remote Start"
                 },
                 new Car
                 {
-                    ID = 3,
-                    BrandID = 2,
-                    ColorID = 3,
+                    Id = 3,
+                    BrandId = 2,
+                    ColorId = 3,
                     ModelYear = 2007,
                     DailyPrice = 350,
                     Description = "Sunroof"
                 },
                 new Car
                 {
-                    ID = 4,
-                    BrandID = 2,
-                    ColorID = 1,
+                    Id = 4,
+                    BrandId = 2,
+                    ColorId = 1,
                     ModelYear = 2009,
                     DailyPrice = 460,
                     Description = "Sunroof, Navigation System",
                 },
                 new Car
                 {
-                    ID = 5,
-                    BrandID = 1,
-                    ColorID = 3,
+                    Id = 5,
+                    BrandId = 1,
+                    ColorId = 3,
                     ModelYear = 2017,
                     DailyPrice = 830,
                     Description = "Sunroof, Navigation System, Bluetooth, Remote Start, Android Auto"
                 },
                 new Car
                 {
-                    ID = 6,
-                    BrandID = 3,
-                    ColorID = 2,
+                    Id = 6,
+                    BrandId = 3,
+                    ColorId = 2,
                     ModelYear = 2011,
                     DailyPrice = 570,
                     Description = "Sunroof, Navigation System, Bluetooth"
                 },
                 new Car
                 {
-                    ID = 7,
-                    BrandID = 2,
-                    ColorID = 1,
+                    Id = 7,
+                    BrandId = 2,
+                    ColorId = 1,
                     ModelYear = 2020,
                     DailyPrice = 1250,
                     Description = "Sunroof, Navigation System, Bluetooth, Remote Start, Android Auto, Third-Row Seating"
@@ -100,9 +101,9 @@ namespace DataAccess.Concrete.InMemory
         {
             foreach (var car in _cars)
             {
-                Console.WriteLine("       " + car.ID);
-                Console.WriteLine("Brand ID: " + car.BrandID);
-                Console.WriteLine("Color ID: " + car.ColorID);
+                Console.WriteLine("       " + car.Id);
+                Console.WriteLine("Brand ID: " + car.BrandId);
+                Console.WriteLine("Color ID: " + car.ColorId);
                 Console.WriteLine("Model Year: " + car.ModelYear);
                 Console.WriteLine("Daily Price: " + car.DailyPrice);
                 Console.WriteLine("Description: " + car.Description);
@@ -115,25 +116,35 @@ namespace DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
-        public void GetByID(int carID)
+        public void GetById(int carId)
         {
-            Car carByID = _cars.SingleOrDefault(c => c.ID == carID);
+            Car carById = _cars.SingleOrDefault(c => c.Id == carId);
 
-            Console.WriteLine("       " + carByID.ID);
-            Console.WriteLine("Brand ID: " + carByID.BrandID);
-            Console.WriteLine("Color ID: " + carByID.ColorID);
-            Console.WriteLine("Model Year: " + carByID.ModelYear);
-            Console.WriteLine("Daily Price: " + carByID.DailyPrice);
-            Console.WriteLine("Description: " + carByID.Description);
+            Console.WriteLine("       " + carById.Id);
+            Console.WriteLine("Brand ID: " + carById.BrandId);
+            Console.WriteLine("Color ID: " + carById.ColorId);
+            Console.WriteLine("Model Year: " + carById.ModelYear);
+            Console.WriteLine("Daily Price: " + carById.DailyPrice);
+            Console.WriteLine("Description: " + carById.Description);
             Console.WriteLine("\n");
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
         {
-            Car carToUpdate = _cars.SingleOrDefault(c => c.ID == car.ID);
-            carToUpdate.ID = car.ID;
-            carToUpdate.BrandID = car.BrandID;
-            carToUpdate.ColorID = car.ColorID;
+            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
+            carToUpdate.Id = car.Id;
+            carToUpdate.BrandId = car.BrandId;
+            carToUpdate.ColorId = car.ColorId;
             carToUpdate.ModelYear = car.ModelYear;
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;

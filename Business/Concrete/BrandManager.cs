@@ -36,14 +36,13 @@ namespace Business.Concrete
         }
 
         public List<Brand> GetAll()
-        {
-            Console.WriteLine("\tAll Brands in the System");
+        {           
             return _brandDal.GetAll();
         }
 
-        public Brand GetByID(int ID)
+        public Brand GetById(int id)
         {
-            return _brandDal.Get(b => b.ID == ID);
+            return _brandDal.Get(b => b.Id == id);
         }
 
         public void Update(Brand brand)

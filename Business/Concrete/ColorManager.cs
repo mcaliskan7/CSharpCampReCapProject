@@ -30,13 +30,12 @@ namespace Business.Concrete
 
         public List<Color> GetAll()
         {
-            Console.WriteLine("\tAll Colors in the System");
             return _colorDal.GetAll();
         }
 
-        public Color GetByID(int ID)
+        public Color GetById(int id)
         {
-            return _colorDal.Get(c => c.ID == ID);
+            return _colorDal.Get(c => c.Id == id);
         }
 
         public void Update(Color color)
