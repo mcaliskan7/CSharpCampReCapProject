@@ -30,12 +30,38 @@ namespace ConsoleUI
             //DeleteBrandTest();
             //UpdateBrandTest();
 
-            //Test Functions fot Color Operations
+            //Test Functions for Color Operations
             //GetColorByIdTest(id);
             //GetAllColorsTest();
             //AddColorTest();
             //DeleteColorTest();
             //UpdateColorTest();
+
+            //Test Functions for User Operations
+            //AddUserTest();
+            //DeleteUserTest();
+            //UpdateUserTest();
+            //GetAllUsersTest();
+            //GetUserByIdTest();
+            //GetUserByEmailTest();
+
+            //Test Functions for Customer Operations
+            //AddCustomerTest();
+            //DeleteCustomerTest();
+            //UpdateColorTest();
+            //GetAllCustomersTest();
+            //GetCustomerByIdTest();
+            //GetCustomerByUserIdTest();
+            //GetCustomerByCompanyNameTest();
+            //GetCustomerDetailsTest();
+
+            //Test Functions for Rental Operations
+            //AddRentalTest();
+            //UpdateReturnDateTest();
+            //GetAllRentalsTest();
+            //GetRentalByIdTest();
+            //GetRentalsByCarIdTest();
+            //GetRentalDetailsTest();
 
             //Displaying all cars' details
             GetCarDetailsTest();
@@ -156,6 +182,102 @@ namespace ConsoleUI
 
             AddCarTest(car2);
             GetAllCarsTest();
+
+            //Adding a new user to the system
+            User user1 = new User
+            {
+                FirstName = "Julius",
+                LastName = "Lenn",
+                Email = "julius.lenn@gmail.com",
+                Password = "lennjulius"
+            };
+
+            AddUserTest(user1);
+            GetAllUsersTest();
+
+            //Removing a user from the system
+            DeleteUserTest(2);
+            GetAllUsersTest();
+
+            //Updating a user in the system
+            User userToUppdate = new User
+            {
+                Id = 7,
+                FirstName = "Melodie",
+                LastName = "Ammons",
+                Email = "melodie.ammons@gmail.com",
+                Password = "ammonsmelodiee"
+            };
+
+            UpdateUserTest(userToUppdate);
+            GetAllUsersTest();
+
+            //Displaying a user by ID in the system
+            GetUserByIdTest(4);
+
+            //Displaying a user by Email in the system
+            GetUserByEmailTest("coretta.qutten@gmail.com");
+
+            //Adding a new customer to the system
+            Customer customer1 = new Customer
+            {
+                UserId = 6,
+                CompanyName = "Galius"
+            };
+
+            AddCustomerTest(customer1);
+            GetAllCustomersTest();
+
+            //Removing a customer from the system
+            DeleteCustomerTest(3);
+            GetAllCustomersTest();
+
+            //Updating a customer in the system
+            Customer customerToUpdate = new Customer
+            {
+                Id = 3,
+                UserId = 9,
+                CompanyName = "Aspera"
+            };
+
+            UpdateCustomerTest(customerToUpdate);
+            GetAllCustomersTest();
+
+            //Displaying a customer by ID in the system
+            GetCustomerByIdTest(4);
+
+            //Displaying a customer by UserID in the system
+            GetCustomerByUserIdTest(5);
+
+            //Displaying a customer by CompanyName in the system
+            GetCustomerByCompanyNameTest("Irona");
+
+            //Displaying all customers' details
+            GetCustomerDetailsTest();
+
+            //Adding a new rental to the system
+            Rental rental1 = new Rental
+            {
+                CarId = 7,
+                CustomerId = 8,
+                RentDate = new DateTime(2021,5,5)
+            };
+
+            AddRentalTest(rental1);
+            GetAllRentalsTest();
+
+            //Updating the Return Date of a rental by CarID in the system (ReturnDate : now)           
+            UpdateReturnDateTest(7);
+            GetAllRentalsTest();
+
+            //Displaying a rental by ID in the system
+            GetRentalByIdTest(1);
+
+            //Displaying a rental by CarID in the system
+            GetRentalsByCarIdTest(7);
+
+            //Displaying all rentals' details 
+            GetRentalDetailsTest();
         }
 
         private static void GetAllColorsTest()
@@ -172,7 +294,8 @@ namespace ConsoleUI
 
                 foreach (var color in result.Data)
                 {
-                    Console.WriteLine("\t{0}\t\t{1}\t", color.Id, color.Name);
+                    Console.WriteLine("\t{0}\t\t{1}\t",
+                        color.Id, color.Name);
                 }
 
                 Console.WriteLine(str + "\n");
@@ -195,7 +318,8 @@ namespace ConsoleUI
                 string str = new string('_', 50);
                 Console.WriteLine(str + "\n\n\tID\t\tName\t");
 
-                Console.WriteLine("\t{0}\t\t{1}\t", colorbyId.Id, colorbyId.Name);
+                Console.WriteLine("\t{0}\t\t{1}\t",
+                    colorbyId.Id, colorbyId.Name);
 
                 Console.WriteLine(str + "\n");
             }
@@ -219,7 +343,8 @@ namespace ConsoleUI
 
                 foreach (var brand in result.Data)
                 {
-                    Console.WriteLine("\t{0}\t\t{1}\t", brand.Id, brand.Name);
+                    Console.WriteLine("\t{0}\t\t{1}\t",
+                        brand.Id, brand.Name);
                 }
 
                 Console.WriteLine(str + "\n");
@@ -242,7 +367,8 @@ namespace ConsoleUI
                 string str = new string('_', 50);
                 Console.WriteLine(str + "\n\n\tID\t\tName\t");
 
-                Console.WriteLine("\t{0}\t\t{1}\t", brandById.Id, brandById.Name);
+                Console.WriteLine("\t{0}\t\t{1}\t",
+                    brandById.Id, brandById.Name);
 
                 Console.WriteLine(str + "\n");
             }
@@ -497,6 +623,376 @@ namespace ConsoleUI
             var result = colorManager.Update(color);
 
             Console.WriteLine(result.Message);
+        }
+
+        private static void AddUserTest(User user)
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            var result = userManager.Add(user);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void DeleteUserTest(int id)
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            var result = userManager.Delete(userManager.GetById(id).Data);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void UpdateUserTest(User user)
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            var result = userManager.Update(user);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void GetAllUsersTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            var result = userManager.GetAll();
+
+            if (result.Success == true)
+            {
+                Console.WriteLine("\t\tAll Users in the System");
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tName\t");
+
+                foreach (var user in result.Data)
+                {
+                    Console.WriteLine("\t{0}\t\t{1}\t",
+                        user.Id, user.FirstName + " " + user.LastName);
+                }
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetUserByIdTest(int id)
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            var result = userManager.GetById(id);
+            User userById = result.Data;
+
+            if (result.Success == true)
+            {
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tName\t");
+
+                Console.WriteLine("\t{0}\t\t{1}\t",
+                    userById.Id, userById.FirstName + " " + userById.LastName);
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetUserByEmailTest(string email)
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+
+            var result = userManager.GetByEmail(email);
+            User userByEmail = result.Data;
+
+            if (result.Success == true)
+            {
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tName\t");
+
+                Console.WriteLine("\t{0}\t\t{1}\t",
+                    userByEmail.Id, userByEmail.FirstName + " " + userByEmail.LastName);
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void AddCustomerTest(Customer customer)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.Add(customer);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void DeleteCustomerTest(int id)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.Delete(customerManager.GetById(id).Data);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void UpdateCustomerTest(Customer customer)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.Update(customer);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void GetAllCustomersTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.GetAll();
+
+            if (result.Success == true)
+            {
+                Console.WriteLine("\t\tAll Customers in the System");
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tUserID\t\tCompany Name\t");
+
+                foreach (var customer in result.Data)
+                {
+                    Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t",
+                        customer.Id, customer.UserId, customer.CompanyName);
+                }
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetCustomerByIdTest(int id)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.GetById(id);
+            Customer customerById = result.Data;
+
+            if (result.Success == true)
+            {
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tUserID\t\tCompany Name\t");
+
+                Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t",
+                    customerById.Id, customerById.UserId, customerById.CompanyName);
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetCustomerByUserIdTest(int userId)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.GetByUserId(userId);
+            Customer customerByUserId = result.Data;
+
+            if (result.Success == true)
+            {
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tUserID\t\tCompany Name\t");
+
+                Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t",
+                    customerByUserId.Id, customerByUserId.UserId, customerByUserId.CompanyName);
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetCustomerByCompanyNameTest(string companyName)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.GetByCompanyName(companyName);
+            Customer customerByCompanyName = result.Data;
+
+            if (result.Success == true)
+            {
+                string str = new string('_', 50);
+                Console.WriteLine(str + "\n\n\tID\t\tUserID\t\tCompany Name\t");
+
+                Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t",
+                    customerByCompanyName.Id, customerByCompanyName.UserId, customerByCompanyName.CompanyName);
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetCustomerDetailsTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.GetCustomerDetails();
+
+            if (result.Success == true)
+            {
+                Console.WriteLine("\t\t\t\t\t\t\t\tCustomer Details");
+                string str = new string('_', 180);
+
+                Console.WriteLine(str + "\n\n" +
+                                      "\tId\t\tFirstName\t\tLastName\t\tCompanyName\t");
+
+                foreach (var detail in result.Data)
+                {
+                    Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t\t{3}\t",
+                        detail.Id, detail.FirstName, detail.LastName, detail.CompanyName);
+                }
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void AddRentalTest(Rental rental)
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.Add(rental);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void UpdateReturnDateTest(int carId)
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.UpdateReturnDate(carId);
+
+            Console.WriteLine(result.Message);
+        }
+
+        private static void GetAllRentalsTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetAll();
+
+            if (result.Success == true)
+            {
+                Console.WriteLine("\tAll Rentals in the System");
+                string str = new string('_', 150);
+                Console.WriteLine(str + "\n\n\tID\t\tCarID\t\tCustomerID\t\tRentDate\t\tReturnDate\t");
+
+                foreach (var rental in result.Data)
+                {
+                    Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t",
+                        rental.Id, rental.CarId, rental.CustomerId, rental.RentDate, rental.ReturnDate);
+                }
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetRentalByIdTest(int id)
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetById(id);
+            Rental rentalById = result.Data;
+
+            if (result.Success == true)
+            {
+                string str = new string('_', 150);
+                Console.WriteLine(str + "\n\n\tID\t\tCarID\t\tCustomerID\t\tRentDate\t\tReturnDate\t");
+
+                Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t",
+                        rentalById.Id, rentalById.CarId, rentalById.CustomerId, rentalById.RentDate, rentalById.ReturnDate);
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetRentalsByCarIdTest(int carId)
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetByCarId(carId);
+            List<Rental> rentalsByCarId = result.Data;
+
+            if (result.Success == true)
+            {
+                Console.WriteLine("Rental whose CarId is {0}", carId);
+                string str = new string('_', 150);
+                Console.WriteLine(str + "\n\n\tID\t\tCarID\t\tCustomerID\t\tRentDate\t\tReturnDate\t");
+
+                foreach (var rental in rentalsByCarId)
+                {
+                    Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t",
+                        rental.Id, rental.CarId, rental.CustomerId, rental.RentDate, rental.ReturnDate);
+                }
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void GetRentalDetailsTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetRentalDetails();
+
+            if (result.Success == true)
+            {
+                Console.WriteLine("\t\t\t\t\t\t\t\tRental Details");
+                string str = new string('_', 180);
+
+                Console.WriteLine(str + "\n\n\tID\t\tCarID\t\tCustomerID\t\tCustomerName\t\tRentDate\t\tReturnDate\t");
+
+                foreach (var detail in result.Data)
+                {
+                    Console.WriteLine("\t{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t\t{5}\t",
+                        detail.Id, detail.CarId, detail.CustomerId, detail.CustomerName, detail.RentDate, detail.ReturnDate);
+                }
+
+                Console.WriteLine(str + "\n");
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
         }
     }
 }

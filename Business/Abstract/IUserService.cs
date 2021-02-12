@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IBrandService : IEntityService<Brand>
-    {
-        
+    public interface IUserService : IEntityService<User>
+    {       
+        IDataResult<User> GetByEmail(string email);
     }
 }
