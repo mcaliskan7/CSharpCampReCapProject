@@ -1,6 +1,8 @@
 # CSharpCampReCapProject
 Kodlama.io | C# Camp | Recap Project | Car Rental System
 
-![Structure 1](images/structure1.png)
-![Structure 2](images/structure2.png)
-![Structure 3](images/structure3.png)
+![Business](images/business.png)
+![Core](images/core.png)
+![DataAccess](images/dataaccess.png)
+![Entities](images/entities.png)
+![WebAPI](images/webapi.png)
