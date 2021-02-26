@@ -45,8 +45,14 @@ namespace Business.Constants
         public static string RentalAddFailed = "Car has not been delivered yet!";
         public static string RentalUpdated = "Rental Updated Successfully!";
         public static string RentalUpdateFailed = "Car has already been delivered!";  
-        public static string CarIdInvalid = "Invalid Car Id, Registration Failed.";
+        public static string RentalCarIdInvalid = "Invalid Car Id, Registration Failed.";
         public static string CustomerIdInvalid = "Invalid Customer Id, Registration Failed.";
-        public static string RentDateInvalid = "Invalid Rent Date, Registration Failed.";       
+        public static string RentDateInvalid = "Invalid Rent Date, Registration Failed.";
+
+        public static string CarImageAdded = "Car Image Added Successfully!";
+        public static string CarImageCarIdInvalid = "Invalid Car Id, Registration Failed.";
+        public static string CarImageDeleted = "Car Image Deleted Successfully!";
+        public static string CarImageUpdated = "Car Image Updated Successfully!";
+        public static string CarImageLimitExceeded = "Car Image Limit Exceeded!";       
     }
 }
