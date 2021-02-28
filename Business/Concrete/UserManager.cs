@@ -6,7 +6,7 @@ using Core.CrossCuttingCorcerns.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
-using Entities.Concrete;
+using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +21,7 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-
+        
         [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
@@ -59,6 +59,11 @@ namespace Business.Concrete
 
             _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
         }
     }
 }

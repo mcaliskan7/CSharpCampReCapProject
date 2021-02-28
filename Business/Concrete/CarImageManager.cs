@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac;
@@ -42,6 +43,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarImageAdded);
         }
 
+        [SecuredOperation("admin")]
         public IResult Delete(CarImage carImage)
         {
             IResult result = BusinessRules.Run(FileHelper.DeleteAsync(_carImageDal.Get(cim => cim.Id == carImage.Id).ImagePath));

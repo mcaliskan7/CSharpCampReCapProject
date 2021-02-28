@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -184,15 +185,15 @@ namespace ConsoleUI
             GetAllCarsTest();
 
             //Adding a new user to the system
-            User user1 = new User
-            {
-                FirstName = "Julius",
-                LastName = "Lenn",
-                Email = "julius.lenn@gmail.com",
-                Password = "lennjulius"
-            };
+            //User user1 = new User
+            //{
+            //    FirstName = "Julius",
+            //    LastName = "Lenn",
+            //    Email = "julius.lenn@gmail.com",
+            //    Password = "lennjulius"
+            //};
 
-            AddUserTest(user1);
+            //AddUserTest(user1);
             GetAllUsersTest();
 
             //Removing a user from the system
@@ -200,16 +201,16 @@ namespace ConsoleUI
             GetAllUsersTest();
 
             //Updating a user in the system
-            User userToUppdate = new User
-            {
-                Id = 7,
-                FirstName = "Melodie",
-                LastName = "Ammons",
-                Email = "melodie.ammons@gmail.com",
-                Password = "ammonsmelodiee"
-            };
+            //User userToUppdate = new User
+            //{
+            //    Id = 7,
+            //    FirstName = "Melodie",
+            //    LastName = "Ammons",
+            //    Email = "melodie.ammons@gmail.com",
+            //    Password = "ammonsmelodiee"
+            //};
 
-            UpdateUserTest(userToUppdate);
+            //UpdateUserTest(userToUppdate);
             GetAllUsersTest();
 
             //Displaying a user by ID in the system
