@@ -4,7 +4,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/mcaliskan7/CSharpCamp/blob/main/images/kodlamaio_logo.jpg" alt="C# Camp on Kodlama.io">
 
-#### 💬OVERVIEW
+### 💬OVERVIEW
 
 It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both backend (C#) and frontend (Angular) development. It supports **layered-architecture** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
 
@@ -20,18 +20,18 @@ Another important structure applied to the project to write better and clearer c
 
 All operations performed in this project were tested with **Windows Console App** beforehand, and after the backend development was completed to a great extent, it was tested with **Postman**. All the integrations mentioned in the content are working successfully. While the backend codes continue to be developed simultaneously, the start has been made to include the frontend development in the project.
 
-#### 🚀INSTALLATION
+### 🚀INSTALLATION
 ```bash
 # Clone to repository
 $ git clone https://github.com/mcaliskan7/CSharpCampReCapProject.git
 
 # Go to the folder you cloned
-$ cd CSharpCampRecapProject
+$ cd CSharpCampReCapProject
 
 # Install dependencies
 $ dotnet restore
 ```
-#### 📚LAYERS
+### 📚LAYERS
 
 1. [Business](/Business)
     - [Abstract](/Business/Abstract)
@@ -84,13 +84,13 @@ $ dotnet restore
           - [TransactionScopeAspect.cs](/Core/Aspects/Autofac/Transaction/TransactionScopeAspect.cs)
         - [Validation](/Core/Aspects/Autofac/Validation)
           - [ValidationAspect.cs](/Core/Aspects/Autofac/Validation/ValidationAspect.cs)
-    - [CrossCuttingConcerns](/Core/CrossCuttingCorcerns)
-      - [Caching](/Core/CrossCuttingCorcerns/Caching)
-        - [Microsoft](/Core/CrossCuttingCorcerns/Caching/Microsoft)
-          - [MemoryCacheManager.cs](/Core/CrossCuttingCorcerns/Caching/Microsoft/MemoryCacheManager.cs)
-        - [ICacheManager.cs](/Core/CrossCuttingCorcerns/Caching/ICacheManager.cs)
-      - [Validation](/Core/CrossCuttingCorcerns/Validation)
-        - [ValidationTool.cs](/Core/CrossCuttingCorcerns/Validation/ValidationTool.cs)
+    - [CrossCuttingConcerns](/Core/CrossCuttingConcerns)
+      - [Caching](/Core/CrossCuttingConcerns/Caching)
+        - [Microsoft](/Core/CrossCuttingConcerns/Caching/Microsoft)
+          - [MemoryCacheManager.cs](/Core/CrossCuttingConcerns/Caching/Microsoft/MemoryCacheManager.cs)
+        - [ICacheManager.cs](/Core/CrossCuttingConcerns/Caching/ICacheManager.cs)
+      - [Validation](/Core/CrossCuttingConcerns/Validation)
+        - [ValidationTool.cs](/Core/CrossCuttingConcerns/Validation/ValidationTool.cs)
     - [DataAcess](/Core/DataAccess)
       - [EntityFramework](/Core/DataAccess/EntityFramework)
         - [EfEntityRepositoryBase.cs](/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs)
