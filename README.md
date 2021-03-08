@@ -1,24 +1,25 @@
 <h1 align="center">CAR RENTAL SYSTEM</h1>
 <h2 align="center">Recap Project for Software Developer Training Camp on Kodlama.io</h2>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/mcaliskan7/CSharpCamp/blob/main/images/kodlamaio_logo.jpg" alt="C# Camp on Kodlama.io">
+<p align="center">
+    <img src="https://github.com/mcaliskan7/CSharpCamp/blob/main/images/kodlamaio_logo.jpg" alt="C# Camp on Kodlama.io">
+</p>
 
 ### 💬OVERVIEW
 
-It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both backend (C#) and frontend (Angular) development. It supports **layered-architecture** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
+It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both **backend (C#)** and ***frontend (Angular)*** development. It supports ***layered-architecture*** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
 
-The basic informations required in a car rental system, brand, color, car images, rental information, individual and corporate user information is kept in its database. It performs **CRUD operations** (Create - Read - Update - Delete) and all other operations in conjunction with the database. While performing all these, it adapts to **Clean Code** and **DRY (Don't Repeat Yourself)** concepts thanks to its well-designed interfaces and classes.
+The basic informations required in a car rental system, brand, color, car images, rental information, individual and corporate user information is kept in its database. It performs ***CRUD operations (Create - Read - Update - Delete)*** and all other operations in conjunction with the database. While performing all these, it adapts to ***Clean Code*** and ***DRY (Don't Repeat Yourself)*** concepts thanks to its well-designed interfaces and classes.
 
-**Autofac** is used as an **IoC (Inversion of Control) container**, which is a software design principle that enables the management of the life cycle of the objects in the project. In this way, dependency is tried to be minimized.
+***Autofac*** is used as an ***IoC (Inversion of Control) container***, which is a software design principle that enables the management of the life cycle of the objects in the project. In this way, dependency is tried to be minimized.
 
-With the support of **FluentValidation**, the suitability status of the objects is evaluated before they are directed to business rules. In this way, without the need to make changes on dozens of lines of code, new special rules can easily be introduced for user mail and password, car information and pictures.
+With the support of ***FluentValidation***, the suitability status of the objects is evaluated before they are directed to business rules. In this way, without the need to make changes on dozens of lines of code, new special rules can easily be introduced for user mail and password, car information and pictures.
 
-Another important structure applied to the project to write better and clearer codes is **AOP (Aspect Oriented Programming)**. Thanks to this method, it is ensured that the codes applied in many parts of the system, in other words 'Cross Cutting Corcerns', are abstracted and encapsulated.
+Another important structure applied to the project to write better and clearer codes is ***AOP (Aspect Oriented Programming)***. Thanks to this method, it is ensured that the codes applied in many parts of the system, in other words 'Cross Cutting Corcerns', are abstracted and encapsulated.
 
-**JWT (Jason Web Token)** integration is used to manage access to the database. It is ensured that the user logs in to the site so that they can access basic data. For data and transactions that users should not have access to, **authorization** is also made with JWT. With the **role management** used in the project, it is decided which operations will be accessible for certain users. For example, while a user can only get information from the database, an editor can be given the authority to edit this data and admin can have the authority to perform all kinds of operations.
+***JWT (Jason Web Token)*** integration is used to manage access to the database. It is ensured that the user logs in to the site so that they can access basic data. For data and transactions that users should not have access to, ***authorization*** is also made with JWT. With the ***role management*** used in the project, it is decided which operations will be accessible for certain users. For example, while a user can only get information from the database, an editor can be given the authority to edit this data and admin can have the authority to perform all kinds of operations.
 
-All operations performed in this project were tested with **Windows Console App** beforehand, and after the backend development was completed to a great extent, it was tested with **Postman**. All the integrations mentioned in the content are working successfully. While the backend codes continue to be developed simultaneously, the start has been made to include the frontend development in the project.
+All operations performed in this project were tested with ***Windows Console App*** beforehand, and after the backend development was completed to a great extent, it was tested with ***Postman***. All the integrations mentioned in the content are working successfully. While the backend codes continue to be developed simultaneously, the start has been made to include the frontend development in the project.
 
 ### 🚀INSTALLATION
 ```bash
@@ -194,3 +195,6 @@ $ dotnet restore
     - [Startup.cs](/WebAPI/Startup.cs)
     - [appsettings.Development.json](/WebAPI/appsettings.Development.json)
     - [appsettings.json](/WebAPI/appsettings.json)
+
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE)
