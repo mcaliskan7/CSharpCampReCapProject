@@ -7,7 +7,7 @@
 
 ### 💬OVERVIEW
 
-It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both **backend (C#)** and **frontend (Angular)** development. It supports ***layered-architecture*** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
+It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both **backend (C#)** and **frontend (Angular)** development. It supports **layered-architecture** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
 
 The basic information required in a car rental system, brand, color, car images, rental information, individual and corporate user information is kept in its database. It performs **CRUD operations (Create - Read - Update - Delete)** and all other operations in conjunction with the database. While performing all these, it adapts to **Clean Code** and **DRY (Don't Repeat Yourself)** concepts thanks to its well-designed interfaces and classes.
 
