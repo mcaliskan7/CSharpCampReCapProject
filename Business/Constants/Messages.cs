@@ -64,5 +64,16 @@ namespace Business.Constants
         public static string UserAlreadyExists = "User Already Exists!";
         public static string AccessTokenCreated = "AccessTokenCreated";
         public static string AuthorizationDenied = "Authorization Denied!";
+
+        public static string CreditCardAdded = "Credit Card Added Successfully!";
+        public static string CreditCardDeleted = "Credit Card Deleted Successfully!";
+
+        public static Findeks FindeksNotFound = null;
+        public static string FindeksAdded = "Findeks Added Successfully!";
+        public static string FindeksUpdated = "Findeks Updated Successfully!";
+        public static string FindeksDeleted = "Findeks Deleted Successfully!";
+
+        public static string PaymentSuccessful = "Payment Successful!";
+        public static string PaymentFailed = "Payment Failed!";
     }
 }
