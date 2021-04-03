@@ -1,39 +1,44 @@
 <h1 align="center">CAR RENTAL SYSTEM</h1>
 <h2 align="center">Recap Project for Software Developer Training Camp on Kodlama.io</h2>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/mcaliskan7/CSharpCamp/blob/main/images/kodlamaio_logo.jpg" alt="C# Camp on Kodlama.io">
+<p align="center">
+    <img src="https://github.com/mcaliskan7/CSharpCamp/blob/main/images/kodlamaio_logo.jpg" alt="C# Camp on Kodlama.io">
+</p>
 
-#### 💬OVERVIEW
+### 💬OVERVIEW
 
-It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both backend (C#) and frontend (Angular) development. It supports **layered-architecture** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
+It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both **backend (C#)** and **frontend (Angular)** development. It supports **layered-architecture** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
 
-The basic informations required in a car rental system, brand, color, car images, rental information, individual and corporate user information is kept in its database. It performs **CRUD operations** (Create - Read - Update - Delete) and all other operations in conjunction with the database. While performing all these, it adapts to **Clean Code** and **DRY (Don't Repeat Yourself)** concepts thanks to its well-designed interfaces and classes.
+The basic information required in a car rental system, brand, color, car images, rental information, individual and corporate user information is kept in its database. It performs **CRUD operations (Create - Read - Update - Delete)** and all other operations in conjunction with the database. While performing all these, it adapts to **Clean Code** and **DRY (Don't Repeat Yourself)** concepts thanks to its well-designed interfaces and classes.
 
 **Autofac** is used as an **IoC (Inversion of Control) container**, which is a software design principle that enables the management of the life cycle of the objects in the project. In this way, dependency is tried to be minimized.
 
 With the support of **FluentValidation**, the suitability status of the objects is evaluated before they are directed to business rules. In this way, without the need to make changes on dozens of lines of code, new special rules can easily be introduced for user mail and password, car information and pictures.
 
-Another important structure applied to the project to write better and clearer codes is **AOP (Aspect Oriented Programming)**. Thanks to this method, it is ensured that the codes applied in many parts of the system, in other words 'Cross Cutting Corcerns', are abstracted and encapsulated.
+Another important structure applied to the project to write better and clearer codes is **AOP (Aspect Oriented Programming)**. Thanks to this method, it is ensured that the codes applied in many parts of the system, in other words **'Cross Cutting Corcerns'**, are abstracted and encapsulated.
 
 **JWT (Jason Web Token)** integration is used to manage access to the database. It is ensured that the user logs in to the site so that they can access basic data. For data and transactions that users should not have access to, **authorization** is also made with JWT. With the **role management** used in the project, it is decided which operations will be accessible for certain users. For example, while a user can only get information from the database, an editor can be given the authority to edit this data and admin can have the authority to perform all kinds of operations.
 
 All operations performed in this project were tested with **Windows Console App** beforehand, and after the backend development was completed to a great extent, it was tested with **Postman**. All the integrations mentioned in the content are working successfully. While the backend codes continue to be developed simultaneously, the start has been made to include the frontend development in the project.
 
-#### 🚀INSTALLATION
+### 🚀INSTALLATION
 ```bash
 # Clone to repository
 $ git clone https://github.com/mcaliskan7/CSharpCampReCapProject.git
 
 # Go to the folder you cloned
-$ cd CSharpCampRecapProject
+$ cd CSharpCampReCapProject
 
 # Install dependencies
 $ dotnet restore
 ```
-#### 📚LAYERS
+### 📚LAYERS
 
-1. [Business](/Business)
+<p>
+<details>
+<summary>Business</summary><br/>
+
+- [Business](/Business)
     - [Abstract](/Business/Abstract)
       - [IAuthService.cs](/Business/Abstract/IAuthService.cs)
       - [IBrandService.cs](/Business/Abstract/IBrandService.cs)
@@ -70,9 +75,19 @@ $ dotnet restore
         - [CustomerValidator.cs](/Business/ValidationRules/CustomerValidator.cs)
         - [RentalValidator.cs](/Business/ValidationRules/RentalValidator.cs)
         - [UserValidator.cs](/Business/ValidationRules/UserValidator.cs)
-2. [ConsoleUI](/ConsoleUI)
+</details>
+
+<details>
+<summary>ConsoleUI</summary><br>
+
+- [ConsoleUI](/ConsoleUI)
     - [Program.cs](/ConsoleUI/Program.cs)
-3. [Core](/Core)
+</details>
+
+<details>
+<summary>Core</summary><br>
+
+- [Core](/Core)
     - [Aspects](/Core/Aspects)
       - [Autofac](/Core/Aspects/Autofac)
         - [Caching](/Core/Aspects/Autofac/Caching)
@@ -84,13 +99,13 @@ $ dotnet restore
           - [TransactionScopeAspect.cs](/Core/Aspects/Autofac/Transaction/TransactionScopeAspect.cs)
         - [Validation](/Core/Aspects/Autofac/Validation)
           - [ValidationAspect.cs](/Core/Aspects/Autofac/Validation/ValidationAspect.cs)
-    - [CrossCuttingConcerns](/Core/CrossCuttingCorcerns)
-      - [Caching](/Core/CrossCuttingCorcerns/Caching)
-        - [Microsoft](/Core/CrossCuttingCorcerns/Caching/Microsoft)
-          - [MemoryCacheManager.cs](/Core/CrossCuttingCorcerns/Caching/Microsoft/MemoryCacheManager.cs)
-        - [ICacheManager.cs](/Core/CrossCuttingCorcerns/Caching/ICacheManager.cs)
-      - [Validation](/Core/CrossCuttingCorcerns/Validation)
-        - [ValidationTool.cs](/Core/CrossCuttingCorcerns/Validation/ValidationTool.cs)
+    - [CrossCuttingConcerns](/Core/CrossCuttingConcerns)
+      - [Caching](/Core/CrossCuttingConcerns/Caching)
+        - [Microsoft](/Core/CrossCuttingConcerns/Caching/Microsoft)
+          - [MemoryCacheManager.cs](/Core/CrossCuttingConcerns/Caching/Microsoft/MemoryCacheManager.cs)
+        - [ICacheManager.cs](/Core/CrossCuttingConcerns/Caching/ICacheManager.cs)
+      - [Validation](/Core/CrossCuttingConcerns/Validation)
+        - [ValidationTool.cs](/Core/CrossCuttingConcerns/Validation/ValidationTool.cs)
     - [DataAcess](/Core/DataAccess)
       - [EntityFramework](/Core/DataAccess/EntityFramework)
         - [EfEntityRepositoryBase.cs](/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs)
@@ -143,7 +158,12 @@ $ dotnet restore
           - [ITokenHelper.cs](/Core/Utilities/Security/JWT/ITokenHelper.cs)
           - [JwtHelper.cs](/Core/Utilities/Security/JWT/JwtHelper.cs)
           - [TokenOptions.cs](/Core/Utilities/Security/JWT/TokenOptions.cs)
-4. [DataAccess](/DataAccess)
+</details>
+
+<details>
+<summary>DataAccess</summary><br>
+
+- [DataAccess](/DataAccess)
     - [Abstract](/DataAccess/Abstract)
       - [IBrandDal.cs](/DataAccess/Abstract/IBrandDal.cs)
       - [ICarDal.cs](/DataAccess/Abstract/ICarDal.cs)
@@ -164,7 +184,12 @@ $ dotnet restore
         - [EfUserDal.cs](/DataAccess/Concrete/EntityFramework/EfUserDal.cs)
       - [InMemory](/DataAccess/Concrete/InMemory)
         - [InMemoryCarDal.cs](/DataAccess/Concrete/InMemory/InMemoryCarDal.cs)
-5. [Entities](/Entities)
+</details>
+
+<details>
+<summary>Entities</summary><br>
+
+- [Entities](/Entities)
     - [Concrete](/Entities/Concrete)
       - [Brand.cs](/Entities/Concrete/Brand.cs)
       - [Car.cs](/Entities/Concrete/Car.cs)
@@ -178,7 +203,12 @@ $ dotnet restore
       - [RentalDetailDto.cs](/Entities/DTO/RentalDetailDto.cs)
       - [UserForLoginDto.cs](/Entities/DTO/UserForLoginDto.cs)
       - [UserForRegisterDto.cs](/Entities/DTO/UserForRegisterDto.cs)
-6. [WebAPI](/WebAPI)
+</details>
+
+<details>
+<summary>WebAPI</summary><br>
+
+- [WebAPI](/WebAPI)
     - [Controllers](/WebAPI/Controllers)
       - [AuthController.cs](/WebAPI/Controllers/AuthController.cs)
       - [BrandsController.cs](/WebAPI/Controllers/BrandsController.cs)
@@ -194,3 +224,7 @@ $ dotnet restore
     - [Startup.cs](/WebAPI/Startup.cs)
     - [appsettings.Development.json](/WebAPI/appsettings.Development.json)
     - [appsettings.json](/WebAPI/appsettings.json)
+</details>
+</p>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE)
