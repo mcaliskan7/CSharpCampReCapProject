@@ -5,6 +5,8 @@
     <img src="https://github.com/mcaliskan7/CSharpCamp/blob/main/images/kodlamaio_logo.jpg" alt="C# Camp on Kodlama.io">
 </p>
 
+Repository including Frontend Codes: https://github.com/mcaliskan7/ReCapProjectFrontend
+
 ### 💬OVERVIEW
 
 It is a project that I continue to develop by applying what I have learned during the Software Developer Training Camp where I participated on Kodlama.io. It includes both **backend (C#)** and **frontend (Angular)** development. It supports **layered-architecture** including Entities, Data Access, Business and Core layers, also Console UI and Web API layers for testing.
