@@ -23,8 +23,6 @@ Another important structure applied to the project to write better and clearer c
 
 All operations performed in this project were tested with **Windows Console App** beforehand, and after the backend development was completed to a great extent, it was tested with **Postman**. All the integrations mentioned in the content are working successfully. While the backend codes continue to be developed simultaneously, the start has been made to include the frontend development in the project.
 
-Frontend Repository: https://github.com/mcaliskan7/ReCapProjectFrontend
-
 ### 🚀INSTALLATION
 ```bash
 # Clone to repository
